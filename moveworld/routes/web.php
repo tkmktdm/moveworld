@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\MoveMiddleware;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+Route::get('/', 'HomeController@index')->middleware(MoveMiddleware::class);
+Route::get('/move', 'MoveController@index');
+Route::get('/acount', 'AcountController@index');
+Route::get('/info', 'InfoController@index');
+Route::get('/other', 'OtherController@index');
