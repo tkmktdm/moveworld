@@ -13,10 +13,10 @@ use App\Http\Middleware\MoveMiddleware;
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
-});*/
-Route::get('/', 'HomeController@index')->middleware(MoveMiddleware::class);
+});
+Route::get('/top', 'TopController@index')->middleware(MoveMiddleware::class);
 Route::get('/move', 'MoveController@index');
 Route::get('/acount', 'AcountController@index');
 Route::get('/info', 'InfoController@index');
