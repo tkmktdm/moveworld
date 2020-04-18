@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class TopController extends Controller
 {
     public function index(Request $request){
-        return view('home.index',['data'=>$request->data]);
+        return view('top.index',['data'=>$request->data]);
     }
     //
 }
