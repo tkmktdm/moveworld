@@ -1,6 +1,4 @@
-@extends("layouts.app")
-@include('template.header')
-
+@extends('layouts.app')
 @section("title","HOME")
 @section("menubar")
     @parent

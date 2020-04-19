@@ -1,17 +1,21 @@
 @extends('layouts.app')
-@include('template.header')
 @section('title','ACOUNT')
 @section('content')
-    <p>アカウントです</p>
+    <p>アカウントページ</p>
+    <!-- Authentication Links -->
+    @guest
     <table>
-    <tr>
-        <td>ID [ mail ]: </td>
-        <td><input type="text" name="name" maxlength="5"></td>
-    </tr>
-    <tr>
-        <td>password: </td>
-        <td><input type="password" name="pass"  maxlength="6"></td>
-    </tr>
+        <td>
+            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        </td>
+        @if (Route::has('register'))
+            <td>
+                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            </td>
+        @endif
+        @else
+        <p>ようこそ{{ Auth::user()->name }}さん</p>
+        <button>更新する</button>
     </table>
-    <button>送信</button>
+    @endguest
 @endsection
