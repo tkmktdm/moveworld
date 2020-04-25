@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
-class AcountController extends Controller
+class UserController extends Controller
 {
     public function __construct()
     {
@@ -15,6 +15,6 @@ class AcountController extends Controller
     public function index()
     {
         $users = User::All();
-        return view('acount.index', ['users' => $users]);
+        return view('user.index', ['users' => $users]);
     }
 }

@@ -7,23 +7,57 @@ use Illuminate\Http\Request;
 
 class ChatController extends Controller
 {
-    public function index(Request $request)
+    public function __construct()
     {
-        $items=Chat::all();
-        return view('chat.index',['items'=>$items]);
+        $this->middleware('auth')->except(['index']);
     }
-    public function add(Request $request)
+
+    public function index()
+    {
+        $chats = Chat::All();
+        return view('chat.index', ['chats' => $chats]);
+    }
+
+    public function add()
     {
         return view('chat.add');
     }
+
     public function create(Request $request)
     {
-        $this->validate($request, Chat::$rules);
-        $chat=new Chat;
-        $form=$request->all();
-        unset($form['_token']);
-        $chat->fill($form)->save();
-        return redirect('/chat');
+        $chat = new Chat;
+        $chat->user_id = $request->user()->id;
+        $chat->title = $request->title;
+        $chat->content = $request->content;
+        $chat->save();
+        return redirect('/');
     }
-    //
+
+    public function edit(Request $request)
+    {
+        $chat = Chat::find($request->id);
+        return view('chat.edit', ['chat' => $chat]); 
+    }
+
+    public function update(Request $request)
+    {
+        $chat = Chat::find($request->id);
+        $chat->title = $request->title;
+        $chat->content = $request->content;
+        $chat->save();
+        return redirect('/');
+    }
+
+    public function delete(Request $request)
+    {
+        $chat = Chat::find($request->id);
+        return view('chat.delete', ['chat' => $chat]); 
+    }
+
+    public function remove(Request $request)
+    {
+        $chat = Chat::find($request->id);
+        $chat->delete();
+        return redirect('/');
+    }
 }
