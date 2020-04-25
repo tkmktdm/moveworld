@@ -17,11 +17,14 @@ use App\Http\Middleware\MoveMiddleware;
     return view('welcome');
 });*/
 Route::get('/', 'TopController@index')->middleware(MoveMiddleware::class);
+Auth::routes();
 Route::get('/move', 'MoveController@index');
-Route::get('/acount', 'AcountController@index');
+Route::get('/acount', 'AcountController@index')->name('acount_index');
 Route::get('/info', 'InfoController@index');
 Route::get('/other', 'OtherController@index');
+Route::get('chat','ChatController@index');
+Route::get('chat/add','ChatController@add');
+Route::post('chat/add','Chatcontroller@create');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
