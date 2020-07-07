@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.kotonoha')
 @section("title","HOME")
 <!--@section("menubar")
     @parent

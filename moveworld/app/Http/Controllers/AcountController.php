@@ -15,6 +15,6 @@ class AcountController extends Controller
     public function index()
     {
         $users = User::All();
-        return view('acount.index', ['users' => $users]);
+        return view('kotonoha.acount.index', ['users' => $users]);
     }
 }

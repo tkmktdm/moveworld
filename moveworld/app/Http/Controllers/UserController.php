@@ -15,6 +15,6 @@ class UserController extends Controller
     public function index()
     {
         $users = User::All();
-        return view('user.index', ['users' => $users]);
+        return view('kotonoha.user.index', ['users' => $users]);
     }
 }

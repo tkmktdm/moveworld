@@ -36,7 +36,7 @@ class ChatController extends Controller
     public function edit(Request $request)
     {
         $chat = Chat::find($request->id);
-        return view('chat.edit', ['chat' => $chat]); 
+        return view('kotonoha.chat.edit', ['chat' => $chat]); 
     }
 
     public function update(Request $request)
@@ -51,7 +51,7 @@ class ChatController extends Controller
     public function delete(Request $request)
     {
         $chat = Chat::find($request->id);
-        return view('chat.delete', ['chat' => $chat]); 
+        return view('kotonoha.chat.delete', ['chat' => $chat]); 
     }
 
     public function remove(Request $request)

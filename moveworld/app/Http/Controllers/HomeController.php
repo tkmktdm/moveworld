@@ -14,9 +14,10 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $now = $carbon_date->format("y/m/d");
+        //$now = $carbon_date->format("y/m/d");
+        //$now = '2020-07-06 12:30:59")';
         //$this->middleware('auth');
-        $this->middleware('$now');
+        //$this->middleware('$now');
     }
 
     /**
@@ -26,6 +27,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('kotonoha.home');
     }
 }

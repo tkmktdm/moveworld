@@ -89,6 +89,9 @@
             @yield('content')
         </main>
     </div>
+    <main class='py-4'>
+        @yield('niconico')
+    </main>
     @yield('footer-textchat')
 </body>
 </html>
