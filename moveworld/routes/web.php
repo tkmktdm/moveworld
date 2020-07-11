@@ -16,8 +16,12 @@ use App\Http\Middleware\MoveMiddleware;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
+
 Route::get('/', 'TopController@index')->middleware(MoveMiddleware::class)->name('home');
+
 Auth::routes();
+Route::get('/', 'TopController@index')->name('home');
+
 Route::prefix('kotonoha')->group(function () {
     Route::get('/', 'Kotonoha\TopController@index')->middleware(MoveMiddleware::class)->name('kotonoha.home');
     Route::get('move', 'Kotonoha\MoveController@index')->name('move');
