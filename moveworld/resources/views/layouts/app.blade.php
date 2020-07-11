@@ -40,6 +40,9 @@
                 <a class="navbar-brand" href="{{route('other')}}">
                     {{ config('app.name4', 'Other') }}
                 </a>
+                <a class="navbar-brand" href="{{route('kotonoha.home')}}">
+                    {{ config('app.name5', 'KotonoHOME') }}
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
