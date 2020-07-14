@@ -18,6 +18,8 @@ use App\Http\Middleware\MoveMiddleware;
 });*/
 
 Route::get('/', 'TopController@index')->middleware(MoveMiddleware::class)->name('home');
+Route::get('show', 'ShowController@index')->name('show');
+Route::get('show/create', 'ShowController@create')->name('show.create');
 
 Auth::routes();
 #Route::get('/', 'TopController@index')->name('home');
